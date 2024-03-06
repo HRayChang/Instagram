@@ -229,6 +229,12 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @objc private func didTapCreateAccountButton() {
+        let vc = RegistrationViewController()
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
+    }
+    
     @objc private func didTapTermsButton() {
         guard let url = URL(string: "https://help.instagram.com/581066165581870") else {
             return
@@ -242,11 +248,6 @@ class LoginViewController: UIViewController {
             return
         }
         let vc = SFSafariViewController(url: url)
-        present(vc, animated: true)
-    }
-    
-    @objc private func didTapCreateAccountButton() {
-        let vc = RegistrationViewController()
         present(vc, animated: true)
     }
 }
