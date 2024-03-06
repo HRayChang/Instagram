@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class LoginViewController: UIViewController {
     
@@ -188,13 +189,38 @@ class LoginViewController: UIViewController {
         view.addSubview(headerView)
     }
     
-    @objc private func didTapLoginButton() {}
+    @objc private func didTapLoginButton() {
+        usernameEmailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
     
-    @objc private func didTapTermsButton() {}
+        guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,
+              let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+            return
+        }
+        
+        // Login functionality
+    }
     
-    @objc private func didTapPrivacyButton() {}
+    @objc private func didTapTermsButton() {
+        guard let url = URL(string: "https://help.instagram.com/581066165581870") else {
+            return
+        }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
     
-    @objc private func didTapCreateAccountButton() {}
+    @objc private func didTapPrivacyButton() {
+        guard let url = URL(string: "https://help.instagram.com/155833707900388") else {
+            return
+        }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
+    
+    @objc private func didTapCreateAccountButton() {
+        let vc = RegistrationViewController()
+        present(vc, animated: true)
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
