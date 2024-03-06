@@ -29,6 +29,9 @@
 		73A30EEE2B977C04007F00E1 /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30EED2B977C04007F00E1 /* PostEditorViewController.swift */; };
 		73A30EF02B977C20007F00E1 /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30EEF2B977C20007F00E1 /* PublishPostViewController.swift */; };
 		73A30EF22B978F40007F00E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A30EF12B978F40007F00E1 /* GoogleService-Info.plist */; };
+		73A30EF52B98AC1B007F00E1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30EF42B98AC1B007F00E1 /* DatabaseManager.swift */; };
+		73A30EF72B98AE95007F00E1 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30EF62B98AE95007F00E1 /* AuthManager.swift */; };
+		73A30EF92B98AF08007F00E1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A30EF82B98AF08007F00E1 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		73A30EED2B977C04007F00E1 /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		73A30EEF2B977C20007F00E1 /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
 		73A30EF12B978F40007F00E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		73A30EF42B98AC1B007F00E1 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		73A30EF62B98AE95007F00E1 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		73A30EF82B98AF08007F00E1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		86B96E9B8E987E4111370074 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F9E545F6D458AA59DAE755 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		CBE1AC04F7ED7B622D27C445 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +147,9 @@
 				73A30EF12B978F40007F00E1 /* GoogleService-Info.plist */,
 				73A30EB72B9773BD007F00E1 /* AppDelegate.swift */,
 				73A30EB92B9773BD007F00E1 /* SceneDelegate.swift */,
+				73A30EF42B98AC1B007F00E1 /* DatabaseManager.swift */,
+				73A30EF62B98AE95007F00E1 /* AuthManager.swift */,
+				73A30EF82B98AF08007F00E1 /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -331,12 +340,15 @@
 				73A30ED52B977949007F00E1 /* NotificationViewController.swift in Sources */,
 				73A30EDE2B977A35007F00E1 /* RegistrationViewController.swift in Sources */,
 				73A30EEE2B977C04007F00E1 /* PostEditorViewController.swift in Sources */,
+				73A30EF92B98AF08007F00E1 /* StorageManager.swift in Sources */,
 				73A30EE12B977A7C007F00E1 /* PostViewController.swift in Sources */,
+				73A30EF52B98AC1B007F00E1 /* DatabaseManager.swift in Sources */,
 				73A30EBC2B9773BD007F00E1 /* HomeViewController.swift in Sources */,
 				73A30EEC2B977BA4007F00E1 /* SearchResultViewController.swift in Sources */,
 				73A30EDC2B977A04007F00E1 /* LoginViewController.swift in Sources */,
 				73A30EE92B977B6B007F00E1 /* SearchViewController.swift in Sources */,
 				73A30ED72B977958007F00E1 /* ProfileViewController.swift in Sources */,
+				73A30EF72B98AE95007F00E1 /* AuthManager.swift in Sources */,
 				73A30EB82B9773BD007F00E1 /* AppDelegate.swift in Sources */,
 				73A30EBA2B9773BD007F00E1 /* SceneDelegate.swift in Sources */,
 				73A30EE72B977B4B007F00E1 /* ListViewController.swift in Sources */,
