@@ -74,7 +74,10 @@ class RegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
+        usernameField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
         addSubviews()
         
         view.backgroundColor = .systemBackground
@@ -117,5 +120,31 @@ class RegistrationViewController: UIViewController {
         view.addSubview(emailField)
         view.addSubview(passwordField)
         view.addSubview(registerButton)
+    }
+    
+    @objc private func didTapRegister() {
+        emailField.resignFirstResponder()
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
+        guard let email = emailField.text, !email.isEmpty,
+              let password = passwordField.text, !password.isEmpty, password.count >= 8,
+              let username = usernameField.text, !username.isEmpty else {
+            return
+        }
+        
+    }
+}
+
+extension RegistrationViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameField {
+            emailField.becomeFirstResponder()
+        } else if textField == emailField {
+            passwordField.becomeFirstResponder()
+        } else {
+            didTapRegister()
+        }
+        return true
     }
 }
