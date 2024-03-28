@@ -48,6 +48,15 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(label)
         contentView.addSubview(postButton)
+        postButton.addTarget(self, action: #selector(didTapPostButton), for: .touchUpInside)
+        selectionStyle = .none
+    }
+    
+    @objc private func didTapPostButton() {
+        guard let model = model else {
+            return
+        }
+        delegate?.didTapRelatedPostButton(model: model)
     }
     
     required init?(coder: NSCoder) {
@@ -67,6 +76,9 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         case .follow:
             break
         }
+        
+        label.text = model.text
+        profileImageView.sd_setImage(with: model.user.profilePhoto, completed: nil)
     }
     
     override func prepareForReuse() {

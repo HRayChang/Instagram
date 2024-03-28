@@ -9,7 +9,7 @@ import UIKit
 
 enum UserNotificationType {
     case like(post: UserPost)
-    case follow
+    case follow(state: FollowState)
 }
 
 struct UserNotification {
@@ -72,7 +72,7 @@ final class NotificationViewController: UIViewController {
                                 comments: [],
                                 createdDate: Date(),
                                 taggedUsers: [])
-            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow,
+            let model = UserNotification(type: x % 2 == 0 ? .like(post: post) : .follow(state: .not_following),
                                          text: "12",
                                          user: User(username: "1",
                                                     bio: "2",
@@ -106,17 +106,34 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
             // like cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationLikeEventTableViewCell.identifier, for: indexPath) as! NotificationLikeEventTableViewCell
             cell.configure(with: model)
+            cell.delegate = self
             return cell
         case .follow:
             // follow cell
             let cell = tableView.dequeueReusableCell(withIdentifier: NotificationFollowEventTableViewCell.identifier, for: indexPath) as! NotificationFollowEventTableViewCell
 //            cell.configure(with: model)
+            cell.delegate = self
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 52
+    }
+    
+}
+
+extension NotificationViewController: NotificationLikeEventTableViewCellDelegate {
+    func didTapRelatedPostButton(model: UserNotification) {
+        print("Tapped post")
+        // Open the post
+    }
+}
+
+extension NotificationViewController: NotificationFollowEventTableViewCellDelegate {
+    func didTapFollowUnfollowButton(model: UserNotification) {
+        print("Tapped button")
+        // perform database update
     }
     
 }
